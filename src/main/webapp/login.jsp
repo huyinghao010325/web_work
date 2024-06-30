@@ -46,23 +46,21 @@
 <body>
 <div class="container" id="login-box">
     <div class="form-container sign-up-container">
-        <form action="servlets/RegisterServlet" class="form" name="form1" id="form1" method="post" enctype="multipart/form-data">
+        <form>
             <h1>注册</h1>
             <div id="result" style="width: 100%;text-align: center"><img/></div>
             <div class="txtb">
-                <input type="file" id="upload" name="myFile" required>
+                <input type="file" id="upload" name="myFile">
                 <%--                <span data-placeholder="Password" ></span>--%>
             </div>
             <div class="txtb">
-                <input type="text" placeholder="请输入用户名称" name="userName" required>
-                <%--                <span data-placeholder="Email" ></span>--%>
-            </div>
-            <div class="txtb">
-                <input type="text" placeholder="请输入账号" name="account" required>
+                <label for="account"></label>
+                <input type="text" placeholder="请输入账号" name="account" id="account">
 <%--                <span data-placeholder="Useranme" ></span>--%>
             </div>
             <div class="txtb">
-                <input type="password" placeholder="请输入密码" name="password" required>
+                <label for="password"></label>
+                <input type="password" placeholder="请输入密码" name="password" id="password">
 <%--                <span data-placeholder="Email" ></span>--%>
             </div>
 
@@ -74,16 +72,20 @@
         <form action="servlets/LoginServlet" name="loginForm" method="post">
             <h1>登录</h1>
             <div class="txtb">
-                <input type="text" name="account" placeholder="请输入账号">
+                <label for="account"></label>
+                <input type="text" name="account" id="account" placeholder="请输入账号">
 <%--                <span data-placeholder="请输入账号" ></span>--%>
             </div>
             <div class="txtb">
-                <input type="password" name="password" placeholder="请输入密码">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="请输入密码">
 <%--                <span data-placeholder="请输入密码"></span>--%>
             </div>
             <div class="txtb">
-                <input type="text" name="code" size="10" placeholder="请输入验证码">
+                <label for="code"></label>
+                <input type="text" name="code" id="code" size="10" placeholder="请输入验证码">
                 <%--    验证码以图片形式处理--%>
+
             </div>
             <div style="display: flex;justify-content: space-between;">
                 <div>
@@ -93,8 +95,7 @@
                 <div></div>
                 <div></div>
             </div>
-            <button onclick="checkLoginForm">登录</button>
-            <div style="width: 100%;text-align: center;color: red">${loginState}</div>
+            <button>登录</button>
         </form>
     </div>
     <div class="overlay-container">
@@ -114,26 +115,6 @@
     </div>
 </div>
 </body>
-<script type="text/javascript"> 
-    function checkRegisterForm() {
-        if(document.account==null){
-            alert("账户是空的")
-        }else if(document.password == null){
-            alert("密码是空的")
-        }else{
-            document.form1.submit();
-        }
-    }
-    function checkLoginForm(){
-        if (document.account===null){
-            alert("账号是空的！")
-        }else if(document.password===null){
-            alert("密码是空的！")
-        }else {
-            document.loginForm.submit();
-        }
-    }
-</script>
 <script>
     var result = document.getElementById("result");
     var input = document.getElementById("upload");
@@ -174,7 +155,7 @@
         if($(this).val() == '')
             $(this).removeClass("focus")
     })
-    
+
 </script>
 </html>
 
