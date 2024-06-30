@@ -54,11 +54,13 @@
                 <%--                <span data-placeholder="Password" ></span>--%>
             </div>
             <div class="txtb">
-                <input type="text" placeholder="请输入账号" name="account">
+                <label for="account"></label>
+                <input type="text" placeholder="请输入账号" name="account" id="account">
 <%--                <span data-placeholder="Useranme" ></span>--%>
             </div>
             <div class="txtb">
-                <input type="password" placeholder="请输入密码" name="password">
+                <label for="password"></label>
+                <input type="password" placeholder="请输入密码" name="password" id="password">
 <%--                <span data-placeholder="Email" ></span>--%>
             </div>
 
@@ -69,15 +71,18 @@
         <form action="#" name="loginForm">
             <h1>登录</h1>
             <div class="txtb">
-                <input type="text" name="account" placeholder="请输入账号">
+                <label for="account"></label>
+                <input type="text" name="account" id="account" placeholder="请输入账号">
 <%--                <span data-placeholder="请输入账号" ></span>--%>
             </div>
             <div class="txtb">
-                <input type="password" name="password" placeholder="请输入密码">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="请输入密码">
 <%--                <span data-placeholder="请输入密码"></span>--%>
             </div>
             <div class="txtb">
-                <input type="text" name="code" size="10" placeholder="请输入验证码">
+                <label for="code"></label>
+                <input type="text" name="code" id="code" size="10" placeholder="请输入验证码">
                 <%--    验证码以图片形式处理--%>
 
             </div>
