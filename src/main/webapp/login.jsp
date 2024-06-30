@@ -46,27 +46,32 @@
 <body>
 <div class="container" id="login-box">
     <div class="form-container sign-up-container">
-        <form>
+        <form action="servlets/RegisterServlet" class="form" name="form1" id="form1" method="post" enctype="multipart/form-data">
             <h1>注册</h1>
             <div id="result" style="width: 100%;text-align: center"><img/></div>
             <div class="txtb">
-                <input type="file" id="upload" name="myFile">
+                <input type="file" id="upload" name="myFile" required>
                 <%--                <span data-placeholder="Password" ></span>--%>
             </div>
             <div class="txtb">
-                <input type="text" placeholder="请输入账号" name="account">
+                <input type="text" placeholder="请输入用户名称" name="userName" required>
+                <%--                <span data-placeholder="Email" ></span>--%>
+            </div>
+            <div class="txtb">
+                <input type="text" placeholder="请输入账号" name="account" required>
 <%--                <span data-placeholder="Useranme" ></span>--%>
             </div>
             <div class="txtb">
-                <input type="password" placeholder="请输入密码" name="password">
+                <input type="password" placeholder="请输入密码" name="password" required>
 <%--                <span data-placeholder="Email" ></span>--%>
             </div>
 
-            <button>注册</button>
+
+            <button onclick="checkRegisterForm()">注册</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="#" name="loginForm">
+        <form action="servlets/LoginServlet" name="loginForm" method="post">
             <h1>登录</h1>
             <div class="txtb">
                 <input type="text" name="account" placeholder="请输入账号">
@@ -79,7 +84,6 @@
             <div class="txtb">
                 <input type="text" name="code" size="10" placeholder="请输入验证码">
                 <%--    验证码以图片形式处理--%>
-
             </div>
             <div style="display: flex;justify-content: space-between;">
                 <div>
@@ -89,7 +93,8 @@
                 <div></div>
                 <div></div>
             </div>
-            <button>登录</button>
+            <button onclick="checkLoginForm">登录</button>
+            <div style="width: 100%;text-align: center;color: red">${loginState}</div>
         </form>
     </div>
     <div class="overlay-container">
@@ -109,6 +114,26 @@
     </div>
 </div>
 </body>
+<script type="text/javascript"> 
+    function checkRegisterForm() {
+        if(document.account==null){
+            alert("账户是空的")
+        }else if(document.password == null){
+            alert("密码是空的")
+        }else{
+            document.form1.submit();
+        }
+    }
+    function checkLoginForm(){
+        if (document.account===null){
+            alert("账号是空的！")
+        }else if(document.password===null){
+            alert("密码是空的！")
+        }else {
+            document.loginForm.submit();
+        }
+    }
+</script>
 <script>
     var result = document.getElementById("result");
     var input = document.getElementById("upload");
@@ -149,7 +174,7 @@
         if($(this).val() == '')
             $(this).removeClass("focus")
     })
-
+    
 </script>
 </html>
 
