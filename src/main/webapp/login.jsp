@@ -64,11 +64,12 @@
 <%--                <span data-placeholder="Email" ></span>--%>
             </div>
 
-            <button>注册</button>
+
+            <button onclick="checkRegisterForm()">注册</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="#" name="loginForm">
+        <form action="servlets/LoginServlet" name="loginForm" method="post">
             <h1>登录</h1>
             <div class="txtb">
                 <label for="account"></label>
