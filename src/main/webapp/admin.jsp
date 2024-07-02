@@ -1,978 +1,154 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!doctype html>
-<html>
-
+<html class="x-admin-sm">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title></title>
-    <meta name="Keywords" content="关键词,关键词">
-    <meta name="description" content="">
-
-    <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-size: 12px;
-            font-family: "微软雅黑";
-            color: #666;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        ul li {
-            list-style: none;
-        }
-
-        .tz_content {
-            width: 100%;
-            background: #282828;
-        }
-
-        /*t_left start*/
-        .tz_content .t_left {
-            width: 200px;
-            height: 800px;
-            background: #282828;
-            position: fixed;
-            left: 0;
-            top: 0;
-            z-index: 2;
-        }
-
-        .tz_content .t_left .l_logo {
-            width: 100%;
-            height: 108px;
-            border-bottom: 1px solid #000000;
-            background: url("picture/logo1.png") no-repeat center;
-        }
-
-        .tz_content .t_left .l_nav {
-            width: 100%;
-            border-bottom: 1px solid #414141;
-        }
-
-        .tz_content .t_left .l_nav ul li {
-            border-bottom: 1px solid #000000;
-            line-height: 52px;
-            border-top: 1px solid #414141;
-        }
-
-        .tz_content .t_left .l_nav ul li a {
-            display: block;
-            padding-left: 30px;
-        }
-
-        .tz_content .t_left .l_nav ul li a:hover {
-            background: #28b779;
-        }
-
-        .tz_content .t_left .l_nav ul .active a {
-            background: #28b779;
-        }
-
-        .tz_content .t_left .l_nav ul li a i {
-            width: 16px;
-            height: 16px;
-            display: block;
-            background: url("picture/ht_icon.png") no-repeat;
-            float: left;
-            margin-top: 20px;
-        }
-
-        .tz_content .t_left .l_nav ul li a .icon_1 {
-            background-position: -233px -52px;
-        }
-
-        .tz_content .t_left .l_nav ul li a .icon_2 {
-            background-position: -254px -52px;
-        }
-
-        .tz_content .t_left .l_nav ul li a .icon_3 {
-            background-position: -211px -52px;
-        }
-
-        .tz_content .t_left .l_nav ul li a .icon_4 {
-            background-position: -274px -52px;
-        }
-
-        .tz_content .t_left .l_nav ul li a .icon_5 {
-            background-position: -295px -52px;
-        }
-
-        .tz_content .t_left .l_nav ul li a .icon_6 {
-            background-position: -315px -52px;
-            width: 19px;
-            height: 6px;
-            margin-top: 24px;
-        }
-
-        .tz_content .t_left .l_nav ul li a span {
-            font-size: 14px;
-            color: #fff;
-            padding-left: 10px;
-        }
-
-        /*end t_left*/
-
-        /*t_header start*/
-        .tz_content .t_header {
-            width: 100%;
-            height: 56px;
-            background: #2f3437;
-            position: relative;
-            z-index: 1;
-        }
-
-        /*h_nav start*/
-        .tz_content .t_header .h_nav {
-            height: 56px;
-            margin-left: 200px;
-            float: left;
-        }
-
-        .tz_content .t_header .h_nav ul li {
-            float: left;
-            width: 110px;
-            height: 56px;
-            border-left: 1px solid #414141;
-            border-right: 1px solid #000;
-        }
-
-        .tz_content .t_header .h_nav ul li a {
-            display: block;
-            color: #838383;
-            text-align: center;
-            padding-top: 8px;
-        }
-
-        .tz_content .t_header .h_nav ul li a:hover {
-            color: #fff;
-        }
-
-        .tz_content .t_header .h_nav ul li a i {
-            display: block;
-            width: 18px;
-            height: 17px;
-            background: url("picture/ht_icon.png") no-repeat;
-            margin: 3px auto;
-        }
-
-        .tz_content .t_header .h_nav ul li .h_sel {
-            color: #fff;
-        }
-
-        .tz_content .t_header .h_nav ul li a .h_icon1 {
-            background-position: 0 -25px;
-        }
-
-        .tz_content .t_header .h_nav ul li a .h_icon2 {
-            background-position: -24px 0;
-        }
-
-        .tz_content .t_header .h_nav ul li a:hover .h_icon2 {
-            background-position: -24px -25px;
-        }
-
-        .tz_content .t_header .h_nav ul li a .h_icon3 {
-            background-position: -48px 0;
-        }
-
-        .tz_content .t_header .h_nav ul li a:hover .h_icon3 {
-            background-position: -48px -25px;
-        }
-
-        .tz_content .t_header .h_nav ul li a .h_icon4 {
-            background-position: -68px 0;
-        }
-
-        .tz_content .t_header .h_nav ul li a:hover .h_icon4 {
-            background-position: -68px -25px;
-        }
-
-        .tz_content .t_header .h_nav ul li a .h_icon5 {
-            background-position: -91px 0;
-        }
-
-        .tz_content .t_header .h_nav ul li a:hover .h_icon5 {
-            background-position: -91px -25px;
-        }
-
-        .tz_content .t_header .h_nav ul li a .h_icon6 {
-            background-position: -113px 0;
-        }
-
-        .tz_content .t_header .h_nav ul li a:hover .h_icon6 {
-            background-position: -113px -25px;
-        }
-
-        .tz_content .t_header .h_nav ul li a .h_icon7 {
-            background-position: -133px 0;
-        }
-
-        .tz_content .t_header .h_nav ul li a:hover .h_icon7 {
-            background-position: -133px -25px;
-        }
-
-        .tz_content .t_header .h_nav ul li a .h_icon8 {
-            background-position: -152px 0;
-        }
-
-        .tz_content .t_header .h_nav ul li a:hover .h_icon8 {
-            background-position: -152px -25px;
-        }
-
-        /*end h_nav*/
-
-        /*h_info start*/
-        .tz_content .t_header .h_info {
-            height: 56px;
-            position: absolute;
-            top: 0;
-            right: 10px;
-        }
-
-        .tz_content .t_header .h_info .h_user {
-            line-height: 56px;
-            color: #fff;
-            float: left;
-        }
-
-        .tz_content .t_header .h_info .h_out {
-            width: 65px;
-            height: 30px;
-            background: #28b779;
-            margin: 13px 5px 0 10px;
-            float: right;
-        }
-
-        .tz_content .t_header .h_info .h_out a {
-            display: block;
-            line-height: 30px;
-            color: #fff;
-            padding-left: 10px;
-        }
-
-        .tz_content .t_header .h_info .h_out a span {
-            float: left;
-        }
-
-        .tz_content .t_header .h_info .h_out a i {
-            width: 14px;
-            height: 14px;
-            display: block;
-            background: url("picture/ht_icon.png") no-repeat 0 -51px;
-            float: left;
-            margin: 6px 8px;
-        }
-
-        /*end h_info*/
-
-        /*end header*/
-
-        .tz_content .t_right {
-            height: 1500px;
-            background: #f3f4f5;
-            margin-left: 200px;
-        }
-
-        /*r_location start*/
-        .tz_content .t_right .r_location {
-            height: 51px;
-            background: #e5e5e5;
-            border-bottom: 1px solid #ccc;
-            line-height: 51px;
-        }
-
-        .tz_content .t_right .r_location i {
-            width: 14px;
-            height: 18px;
-            display: block;
-            background: url("picture/ht_icon.png") no-repeat;
-            background-position: -16px -51px;
-            float: left;
-            margin: 16px 20px 0 20px;
-        }
-
-        /*end r_location*/
-
-        /*r_message start*/
-        .tz_content .t_right .r_message .m_list {
-            height: 99px;
-            float: left;
-            margin-left: 1%;
-            margin-top: 20px;
-        }
-
-        .tz_content .t_right .r_message .m_1 {
-            width: 22%;
-            background: #27a9e3;
-        }
-
-        .tz_content .t_right .r_message .m_2 {
-            width: 16%;
-            background: #28b779;
-        }
-
-        .tz_content .t_right .r_message .m_3 {
-            width: 17%;
-            background: #ffb848;
-        }
-
-        .tz_content .t_right .r_message .m_4 {
-            width: 21%;
-            background: #cc6a6a;
-        }
-
-        .tz_content .t_right .r_message .m_5 {
-            width: 18%;
-            background: #2255a4;
-        }
-
-        .tz_content .t_right .r_message .m_6 {
-            width: 17%;
-            background: #da542e;
-        }
-
-        .tz_content .t_right .r_message .m_7 {
-            width: 20%;
-            background: #2255a4;
-        }
-
-        .tz_content .t_right .r_message .m_8 {
-            width: 18%;
-            background: #6297bc;
-        }
-
-        .tz_content .t_right .r_message .m_9 {
-            width: 20%;
-            background: #27a9e3;
-        }
-
-        .tz_content .t_right .r_message .m_10 {
-            width: 19%;
-            background: #28b779;
-        }
-
-        .tz_content .t_right .r_message .m_list .m_pic {
-            width: 44px;
-            height: 46px;
-            background: url("picture/ht_icon.png") no-repeat;
-            float: left;
-            margin: 25px 10px 0 20px;
-        }
-
-        .tz_content .t_right .r_message .m_list:hover {
-            background: #2f3437;
-        }
-
-        .tz_content .t_right .r_message .m_list .m_desc {
-            color: #fff;
-            margin-top: 25px;
-        }
-
-        .tz_content .t_right .r_message .m_list .m_desc span {
-            font-size: 24px;
-        }
-
-        .tz_content .t_right .r_message .m_1 .m_pic {
-            background-position: 0 -76px;
-        }
-
-        .tz_content .t_right .r_message .m_2 .m_pic {
-            background-position: -46px -77px;
-        }
-
-        .tz_content .t_right .r_message .m_3 .m_pic {
-            background-position: -96px -77px;
-        }
-
-        .tz_content .t_right .r_message .m_4 .m_pic {
-            background-position: -146px -77px;
-        }
-
-        .tz_content .t_right .r_message .m_5 .m_pic {
-            background-position: -190px -77px;
-        }
-
-        .tz_content .t_right .r_message .m_6 .m_pic {
-            background-position: -239px -77px;
-        }
-
-        .tz_content .t_right .r_message .m_7 .m_pic {
-            background-position: -288px -77px;
-        }
-
-        .tz_content .t_right .r_message .m_8 .m_pic {
-            background-position: -342px -77px;
-        }
-
-        .tz_content .t_right .r_message .m_9 .m_pic {
-            background-position: -395px -77px;
-        }
-
-        .tz_content .t_right .r_message .m_10 .m_pic {
-            background-position: -449px -77px;
-        }
-
-        /*end r_message*/
-
-
-        /*清除浮动*/
-        .clear {
-            clear: both;
-        }
-
-        /*r_table start*/
-        .tz_content .t_right .r_table {
-            border: 1px solid #ccc;
-            margin: 0 1% 0 1%;
-            background: #fff;
-            margin-top: 20px;
-            padding-bottom: 10px;
-        }
-
-        .tz_content .t_right .r_table .r_title {
-            width: 100%;
-            height: 40px;
-            background: #eee;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .tz_content .t_right .r_table .r_title i {
-            width: 16px;
-            height: 14px;
-            display: block;
-            background: url("picture/ht_icon.png") no-repeat -386px -15px;
-            float: left;
-            margin: 12px;
-        }
-
-        .tz_content .t_right .r_table .r_title p {
-            height: 40px;
-            line-height: 40px;
-            border-left: 1px solid #ccc;
-            float: left;
-            padding-left: 5px;
-            color: #000;
-        }
-
-        .tz_content .t_right .r_table .r_label {
-            width: 80%;
-            height: 100px;
-            float: left;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li {
-            list-style: none;
-            float: left;
-            background: #999;
-            margin: 10px 10px 0 10px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a {
-            display: block;
-            padding: 8px 20px;
-            color: #fff;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a:hover {
-            background: #28b779;
-        }
-
-        .tz_content .t_right .r_table .r_label ul .select a {
-            background: #28b779;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a i {
-            width: 15px;
-            height: 14px;
-            display: block;
-            background: url("picture/ht_icon.png") no-repeat;
-            float: left;
-            margin-right: 10px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon1 {
-            background-position: -33px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon2 {
-            background-position: -50px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon3 {
-            background-position: -67px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon4 {
-            background-position: -87px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon5 {
-            background-position: -105px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon6 {
-            background-position: -123px -52px
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon7 {
-            background-position: -140px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon8 {
-            background-position: -155px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon9 {
-            background-position: -172px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon10 {
-            background-position: -191px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_label ul li a .l_icon11 {
-            background-position: -212px -52px;
-        }
-
-        .tz_content .t_right .r_table .r_search {
-            width: 19%;
-            height: 30px;
-            float: left;
-            padding-top: 10px;
-        }
-
-        .tz_content .t_right .r_table .r_search .r_text {
-            width: 60%;
-            height: 28px;
-            line-height: 28px;
-            border: 1px solid #ddd;
-            float: right;
-        }
-
-        .tz_content .t_right .r_table .r_search .r_btn {
-            width: 20%;
-            height: 29px;
-            background: #999;
-            color: #fff;
-            cursor: pointer;
-            border: 0;
-            float: right;
-        }
-
-        /*end r_table*/
-
-        /*r_table_list start*/
-        .tz_content .t_right .r_table .r_table_list {
-            width: 100%;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab {
-            border-collapse: collapse;
-            width: 98%;
-            text-align: center;
-            margin: 0 1%;
-        }
-
-        .tz_content .t_right .r_table .r_table_list tr th {
-            line-height: 40px;
-            background: #eee;
-        }
-
-        .tz_content .t_right .r_table .r_table_list tr td {
-            border: 1px solid #ddd;
-            line-height: 40px;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab thead {
-            border: 1px solid #ddd;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr:hover {
-            background: #EAEAEA;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr:hover .t_action {
-            display: block;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr td .t_action {
-            width: 108px;
-            height: 24px;
-            margin: 0 auto;
-            display: none;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr .t_td {
-            width: 120px;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr td .t_action a {
-            width: 24px;
-            height: 24px;
-            display: block;
-            float: left;
-            margin-right: 2px;
-            background: url("picture/ht_icon.png") no-repeat;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr td .t_action a:hover {
-            background-color: #2f3437;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr td .t_action .a_see {
-            background-position: -359px -45px;
-            background-color: #6297bc;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr td .t_action .a_edit {
-            background-position: -379px -47px;
-            background-color: #27a9e3;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr td .t_action .a_save {
-            background-position: -398px -47px;
-            background-color: #28b779;
-        }
-
-        .tz_content .t_right .r_table .r_table_list .t_tab tbody tr td .t_action .a_del {
-            background-position: -417px -48px;
-            background-color: #ff912f;
-        }
-
-        /*end r_table_list*/
-
-
-
-        /*头部导航和消息提示小于1360的时候 用下边的样式*/
-        @media screen and (max-width:1360px) {
-
-            /*h_nav start*/
-            .tz_content .t_header .h_nav {
-                margin-left: 200px;
-            }
-
-            .tz_content .t_header .h_nav ul li {
-                width: 80px;
-            }
-
-            /*end h_nav*/
-
-            .tz_content .t_right .r_message .m_list .m_pic {
-                display: none;
-            }
-
-            .tz_content .t_right .r_message .m_list .m_desc {
-                text-align: center;
-            }
-        }
-
-        /*头部导航和左侧导航小于1024的时候 用下边的样式*/
-        @media screen and (max-width:1024px) {
-
-            /*t_left start*/
-            .tz_content .t_left {
-                width: 50px;
-            }
-
-            .tz_content .t_left .l_logo {
-                height: 54px;
-                background: url("picture/logo1.png") no-repeat center;
-            }
-
-            .tz_content .t_left .l_nav ul li a {
-                padding-left: 16px;
-                height: 52px;
-            }
-
-            .tz_content .t_left .l_nav ul li a span {
-                display: none;
-            }
-
-            /*end t_left*/
-
-            /*h_nav start*/
-            .tz_content .t_header .h_nav {
-                margin-left: 50px;
-            }
-
-            .tz_content .t_header .h_nav ul li {
-                width: 60px;
-            }
-
-            .tz_content .t_header .h_nav ul li a span {
-                display: none;
-            }
-
-            .tz_content .t_header .h_nav ul li a i {
-                margin: 14px auto;
-            }
-
-            /*end h_nav*/
-
-            .tz_content .t_header .h_info .h_user {
-                display: none;
-            }
-
-            .tz_content .t_right {
-                margin-left: 0;
-            }
-
-            .tz_content .t_right .r_location {
-                margin-left: 50px;
-            }
-
-            .tz_content .t_right .r_message {
-                margin-left: 50px;
-            }
-
-            .tz_content .t_right .r_table {
-                margin-left: 60px;
-            }
-
-        }
-    </style>
-
+    <meta charset="UTF-8">
+    <title>后台登录-X-admin2.2</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        // 是否开启刷新记忆tab功能
+        // var is_remember = false;
+    </script>
 </head>
-
-<body>
-
-
-<div class="tz_content">
-
-    <!--t_left start-->
-    <div class="t_left">
-        <div class="l_logo"></div>
-        <div class="l_nav">
-            <ul>
-                <li class="active">
-                    <a href="">
-                        <i class="icon_1"></i>
-                        <span>首页</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="student.html">
-                        <i class="icon_1"></i>
-                        <span>学生列表</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="teacher.html">
-                        <i class="icon_2"></i>
-                        <span>教师列表</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="course.html">
-                        <i class="icon_3"></i>
-                        <span>专业课列表</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="grade.html">
-                        <i class="icon_4"></i>
-                        <span>年级管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="class.html">
-                        <i class="icon_5"></i>
-                        <span>班级管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="work.html">
-                        <i class="icon_6"></i>
-                        <span>作业管理</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+<body class="index">
+<!-- 顶部开始 -->
+<div class="container" style="background-color: rgb(219, 4, 4);">
+    <div class="logo" >
+        <a href="text.jsp" style="background-color: rgb(255, 32, 32);">
+            <img src="images/02.jpg" alt="" style="width: 40px;height: 40px;border-radius: 50%;">
+            建国七十周年网站
+        </a>
+        <!-- <a href="javascript:;"><img src="images/01.jpg" alt="" style="width: 40px;height: 40px;border-radius: 50%;"></a> -->
     </div>
-    <!--t_left end-->
 
-    <!--t_header start-->
-    <div class="t_header">
-        <!--h_nav start-->
-        <div class="h_nav">
-            <ul>
-                <li>
-                    <a href="#" class="h_sel">
-                        <i class="h_icon1"></i>
-                        <span>首页</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="h_icon2"></i>
-                        <span>界面管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="h_icon3"></i>
-                        <span>栏目管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="h_icon4"></i>
-                        <span>内容管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="h_icon5"></i>
-                        <span>用户管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="h_icon6"></i>
-                        <span>论坛中心</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="h_icon7"></i>
-                        <span>应用中心</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <i class="h_icon8"></i>
-                        <span>工具</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!--end h_nav-->
-
-        <!--h_info start-->
-        <div class="h_info">
-            <div class="h_user">当前用户：Arry , 身份：系统管理员</div>
-            <div class="h_out">
-                <a href="#">
-                    <span>退出</span>
-                    <i></i>
-                </a>
-            </div>
-        </div>
-        <!--end h_info-->
-
+    <div class="left_open">
+        <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
     </div>
-    <!--end t_header-->
+
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item to-index">
+            <a href="#" style="font-size: 18px;background-color: red;">username</a></li>
+        <li class="layui-nav-item">
 
 
-    <!--t_right start-->
-    <div class="t_right">
+            <a href="javascript:;"><img src="images/02.jpg" alt="" style="width: 40px;height: 40px;border-radius: 50%;"></a>
+            <dl class="layui-nav-child">
+                <!-- 二级菜单 -->
+                <dd>
+                    <a onclick="xadmin.open('个人信息','http://localhost/demo3_war/index.jsp')">个人信息</a></dd>
+                <dd>
+                    <a onclick="xadmin.open('切换帐号','http://localhost/demo3_war/login.jsp')">切换帐号</a></dd>
+                <dd>
+                    <a href="./login.html">退出</a></dd>
+            </dl>
+        </li>
 
-        <!--r_location start-->
-        <div class="r_location">
-            <i></i>
-            <p>您当前所在位置：首页 > 后台中心</p>
-        </div>
-        <!--end r_location-->
+    </ul>
+</div>
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<!-- 左侧菜单开始 -->
+<div class="left-nav">
+    <div id="side-nav">
+        <ul id="nav">
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="个人中心">&#xe6b8;</i>
+                    <cite>个人中心</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a onclick="xadmin.add_tab('个人信息','login.jsp')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>个人信息</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('信息修改','member-list.html')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>信息修改</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('文章编写','member-list1.html',true)">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>发布文章</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('文章删除','member-del.html')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>删除文章</cite></a>
+                    </li>
 
-        <!--r_message start-->
-        <div class="r_message">
-            <div class="m_list m_1">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="m_list m_2">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="m_list m_3">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="m_list m_4">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="m_list m_5">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="m_list m_6">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="m_list m_7">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="m_list m_8">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="m_list m_9">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="m_list m_10">
-                <div class="m_pic"></div>
-                <div class="m_desc">
-                    <span>2450</span>
-                    <p>所有用户数</p>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <!--end r_message-->
-
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="订单管理">&#xe723;</i>
+                    <cite>数据中心</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a onclick="xadmin.add_tab('数据中心','welcome1.html')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>数据展示</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('订单列表','order-list.html')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>文章列表</cite></a>
+                    </li>
+                    <!-- <li>
+                        <a onclick="xadmin.add_tab('评论列表','order-list1.html')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>评论列表</cite></a>
+                    </li> -->
+                </ul>
+            </li>
+            <li>
+        </ul>
     </div>
-    <!--end t_right-->
+</div>
+<!-- <div class="x-slide_left"></div> -->
+<!-- 左侧菜单结束 -->
+<!-- 右侧主体开始 -->
+<div class="page-content">
+    <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+        <ul class="layui-tab-title">
+            <li class="home">
+                <i class="layui-icon">&#xe68e;</i>我的桌面</li></ul>
+        <div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">
+            <dl>
+                <dd data-type="this">关闭当前</dd>
+                <dd data-type="other">关闭其它</dd>
+                <dd data-type="all">关闭全部</dd></dl>
+        </div>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <iframe src='./welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+            </div>
+        </div>
+        <div id="tab_show"></div>
+    </div>
+</div>
+<div class="page-content-bg"></div>
+<style id="theme_style"></style>
+<!-- 右侧主体结束 -->
+<!-- 中部结束 -->
+
 
 </div>
-
 
 </body>
 
 </html>
-<script>
-    var del = document.getElementsByClassName('a_del')
-    for (let i = 0; i < del.length; i++) {
-        del[i].onclick = function () {
-            del[i].parentNode.parentNode.parentNode.remove()
-        }
-    }
-</script>

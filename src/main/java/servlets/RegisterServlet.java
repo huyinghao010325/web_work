@@ -54,7 +54,7 @@ public class RegisterServlet extends HttpServlet{
                 System.out.println("文件不存在！创建目标目录");
                 f.mkdir();
             }
-            //判断临时目录是否存在（不存在则创建）
+            //判断临时目录是否存在（不存在则创建）    
             File f1 = new File(tempPath);
             if(!f1.exists()&&!f1.isDirectory()){
                 System.out.println("临时文件目录不存在！创建临时文件目录");
