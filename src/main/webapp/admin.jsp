@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+<%--    <meta http-equiv="Cache-Control" content="no-siteapp" />--%>
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/xadmin.css">
     <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
@@ -47,7 +47,7 @@
             <dl class="layui-nav-child">
                 <!-- 二级菜单 -->
                 <dd>
-                    <a onclick="xadmin.open('个人信息','http://localhost/demo3_war/index.jsp')">个人信息</a></dd>
+                    <a onclick="xadmin.open('个人信息','http://localhost/demo3_war/userInfoPage.jsp')">个人信息</a></dd>
                 <dd>
                     <a onclick="xadmin.open('切换帐号','http://localhost/demo3_war/login.jsp')">切换帐号</a></dd>
                 <dd>
@@ -70,12 +70,12 @@
                     <i class="iconfont nav_right">&#xe697;</i></a>
                 <ul class="sub-menu">
                     <li>
-                        <a onclick="xadmin.add_tab('个人信息','login.jsp')">
+                        <a onclick="xadmin.add_tab('个人信息','userInfoPage.jsp')">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>个人信息</cite></a>
                     </li>
                     <li>
-                        <a onclick="xadmin.add_tab('信息修改','member-list.html')">
+                        <a onclick="xadmin.add_tab('信息修改','changInfo.jsp')">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>信息修改</cite></a>
                     </li>
