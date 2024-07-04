@@ -1,4 +1,6 @@
-<%--
+<%@ page import="javaBean.ArticlesBean" %>
+<%@ page import="dao.ArticlesDao" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2024/7/2
@@ -17,14 +19,14 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: #FFFFFF;
+            color: #0d1117;
             display: flex;
         }
 
         .sidebar {
             width: 250px;
-            background-color: #161b22;
+            background-color: #CC3333;
             padding: 20px;
             height: 100vh;
             position: fixed;
@@ -46,7 +48,7 @@
         }
 
         .sidebar ul li a {
-            color: #58a6ff;
+            color: #161b22;
             text-decoration: none;
         }
 
@@ -84,7 +86,7 @@
 
         .projects,
         .activity {
-            background-color: #161b22;
+            background-color: #FFFFFF;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -131,45 +133,50 @@
         <li><a href="#comments" class="smooth-scroll">评论</a></li>
         <li><a href="#hobbies" class="smooth-scroll">兴趣爱好</a></li>
         <li><a href="#projects" class="smooth-scroll">项目</a></li>
-        <li><a href="#activity" class="smooth-scroll">近期活动</a></li>
     </ul>
 </div>
 <div class="content">
-    <div id="personal-info" class="section">
+    <div id="personal-info" class="section projects">
         <h2>个人信息</h2>
         <p>用户名：${sessionScope.username}</p>
         <p>个人账户：${sessionScope.userAccount}</p>
     </div>
-    <div id="comments" class="section">
+    <div id="comments" class="section projects">
         <h2>评论</h2>
         <p>这里是用户评论的部分。你可以展示来自他人的评价和反馈。</p>
     </div>
-    <div id="hobbies" class="section">
+    <div id="hobbies" class="section projects">
         <h2>兴趣爱好</h2>
         <p>这里是你的兴趣爱好部分。你可以描述你喜欢的活动、爱好以及你在空闲时间喜欢做的事情。</p>
     </div>
     <div id="projects" class="projects">
-        <h2>项目</h2>
-        <div class="project-item">
-            <h3><a href="#">项目1</a></h3>
-            <p>项目描述1</p>
-        </div>
-        <div class="project-item">
-            <h3><a href="#">项目2</a></h3>
-            <p>项目描述2</p>
-        </div>
+        <h2>文章</h2>
+        <%
+            String userID = (String) session.getAttribute("userAccount");
+            String userName =(String) session.getAttribute("username");
+            ArticlesDao articlesDao = new ArticlesDao();
+
+            ArrayList<ArticlesBean> articlesBeans = null;
+            try {
+                articlesBeans = articlesDao.getUserAll(userID);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        %>
+        <%if (articlesBeans != null){%>
+            <%for (ArticlesBean articlesBean:articlesBeans){%>
+                <div class="project-item">
+                    <h3><a href="#"><%=articlesBean.getTitle()%></a></h3>
+                    <p><%=articlesBean.getA_content()%></p>
+                    <img src="<%=("./avatars/"+articlesBean.getAphoto())%>">
+                </div>
+
+            <%}%>
+        <%}%>
+
         <!-- Add more projects as needed -->
     </div>
-    <div id="activity" class="activity">
-        <h2>近期活动</h2>
-        <div class="activity-item">
-            <p>活动描述1</p>
-        </div>
-        <div class="activity-item">
-            <p>活动描述2</p>
-        </div>
-        <!-- Add more activities as needed -->
-    </div>
+
 </div>
 
 <script>

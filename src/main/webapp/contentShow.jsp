@@ -63,7 +63,7 @@
 
                     ArrayList<ArticlesBean> articlesBeans = null;
                     try {
-                        articlesBeans = articlesDao.getUserAll("207621");
+                        articlesBeans = articlesDao.getUserAll(userID);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

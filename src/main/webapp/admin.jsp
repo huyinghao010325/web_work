@@ -22,7 +22,7 @@
 <body>
 
 <div class="navbar">
-    <a href="index.html">七十周年</a>
+    <a href="index.jsp">七十五周年</a>
     <div class="dropdown">
     <span style="display: flex;">
       <img src="${sessionScope.userPhoto}" alt="用户头像" width="40" height="40" style="margin-right: 10px;">
@@ -31,7 +31,7 @@
         <div class="dropdown-content">
             <a href="#">个人资料</a>
             <a href="#">设置</a>
-            <a href="#">退出</a>
+            <a href="back">退出</a>
         </div>
     </div>
 </div>
@@ -46,13 +46,14 @@
     </div>
 
     <div id="main-content" style="display: flex;justify-content: center;align-items: center;overflow: hidden">
+
         <!-- 主内容加载区域 -->
     </div>
 </div>
 
 
 <script>
-    document.getElementById('main-content').innerHTML = 'index.html';
+    document.getElementById('main-content').innerHTML = '<object type="text/html" data="' + 'index.jsp' + '" style="width:100%; height:100vh;"></object>';
     document.querySelector('.toggle-sidebar').addEventListener('click', function() {
         var sidebar = document.querySelector('.sidebar');
         var mainContent = document.querySelector('.main-content');
