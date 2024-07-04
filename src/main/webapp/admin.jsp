@@ -46,7 +46,6 @@
     </div>
 
     <div id="main-content" style="display: flex;justify-content: center;align-items: center;overflow: hidden">
-
         <!-- 主内容加载区域 -->
     </div>
 </div>
