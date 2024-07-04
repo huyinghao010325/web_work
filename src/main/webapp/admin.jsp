@@ -22,7 +22,7 @@
 <body>
 
 <div class="navbar">
-    <a href="index.html">七十周年</a>
+    <a href="index.html">七十五周年</a>
     <div class="dropdown">
     <span style="display: flex;">
       <img src="${sessionScope.userPhoto}" alt="用户头像" width="40" height="40" style="margin-right: 10px;">

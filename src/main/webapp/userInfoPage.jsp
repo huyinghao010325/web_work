@@ -17,14 +17,14 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: #FFFFFF;
+            color: #0d1117;
             display: flex;
         }
 
         .sidebar {
             width: 250px;
-            background-color: #161b22;
+            background-color: #CC3333;
             padding: 20px;
             height: 100vh;
             position: fixed;
@@ -46,7 +46,7 @@
         }
 
         .sidebar ul li a {
-            color: #58a6ff;
+            color: #161b22;
             text-decoration: none;
         }
 
@@ -84,7 +84,7 @@
 
         .projects,
         .activity {
-            background-color: #161b22;
+            background-color: #FFFFFF;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
