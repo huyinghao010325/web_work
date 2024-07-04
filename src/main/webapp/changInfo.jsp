@@ -16,6 +16,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.9); /* 阴影效果 */
         }
+
         h1 {
             color: #333;
             text-align: center;
@@ -64,37 +65,40 @@
     </style>
 </head>
 <body>
-<header>
-    <h1>个人信息修改</h1>
-</header>
 
-<form id="edit-form" action="#" method="post" enctype="multipart/form-data">
-    <label for="name">姓名:</label>
-    <input type="text" id="name" name="name" value="张三" required>
-    <span id="name-error" class="error-message"></span><br>
 
-    <label for="password">密码:</label>
-    <input type="password" id="password" name="password" required>
-    <span id="password-error" class="error-message"></span><br>
+<div class="container">
+    <header>
+        <h1>个人信息修改</h1>
+    </header>
+    <form id="edit-form" action="#" method="post" enctype="multipart/form-data">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" value="张三" required>
+        <span id="name-error" class="error-message"></span><br>
 
-    <label for="new-password">新密码:</label>
-    <input type="password" id="new-password" name="new-password">
-    <div><span id="new-password-error" class="error-message"></span></div>
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required>
+        <span id="password-error" class="error-message"></span><br>
 
-    <label for="confirm-password">确认密码:</label>
-    <input type="password" id="confirm-password" name="confirm-password">
-    <div>
-        <span id="confirm-password-error" class="error-message"></span>
-    </div>
+        <label for="new-password">新密码:</label>
+        <input type="password" id="new-password" name="new-password">
+        <div><span id="new-password-error" class="error-message"></span></div>
 
-    <label for="avatar">更改头像:</label>
-    <input type="file" id="avatar" name="avatar" accept="image/*">
-    <div>
-        <span id="avatar-error" class="error-message"></span>
-    </div>
+        <label for="confirm-password">确认密码:</label>
+        <input type="password" id="confirm-password" name="confirm-password">
+        <div>
+            <span id="confirm-password-error" class="error-message"></span>
+        </div>
 
-    <input type="submit" value="保存">
-</form>
+        <label for="avatar">更改头像:</label>
+        <input type="file" id="avatar" name="avatar" accept="image/*">
+        <div>
+            <span id="avatar-error" class="error-message"></span>
+        </div>
+
+        <input type="submit" value="保存">
+    </form>
+</div>
 
 <script>
     document.getElementById('edit-form').addEventListener('submit', function(event) {

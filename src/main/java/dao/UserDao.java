@@ -53,7 +53,7 @@ public class UserDao {
     }
 
     public String loginUser(String account,String password) throws Exception{
-        if (!this.isExist(account)){
+            if (!this.isExist(account)){
             return "-1";//用户不存在登入失败
         }else {
             UserBean user = this.getInfo(account);
@@ -97,7 +97,7 @@ public class UserDao {
         boolean isExit = false;
         if (this.conn!=null){
             Statement st = this.conn.createStatement();
-            String sql = String.format("select * from %s where %s='%s'",this.dbName,this.dbItem[0],account);
+            String sql = String.format("select * from %s ",this.dbName);
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()){
                 isExit = true;

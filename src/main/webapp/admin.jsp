@@ -1,154 +1,73 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<html class="x-admin-sm">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>后台登录-X-admin2.2</title>
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
-<%--    <meta http-equiv="Cache-Control" content="no-siteapp" />--%>
-    <link rel="stylesheet" href="./css/font.css">
-    <link rel="stylesheet" href="./css/xadmin.css">
-    <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
-    <script src="./lib/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./js/xadmin.js"></script>
-    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
-    <!--[if lt IE 9]>
-    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script>
-        // 是否开启刷新记忆tab功能
-        // var is_remember = false;
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>示例网站</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .navbar { background-color: red; color: white; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; height: 60px; }
+        .navbar a { color: white; text-decoration: none; }
+        .navbar img { border-radius: 50%; }
+        .dropdown-content { display: none; position: absolute; right: 20px; background-color: #f9f9f9; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .sidebar { width: 250px; background-color: #f9f9f9; height: 100vh; border-right: 1px solid #ddd; padding: 10px; }
+        .sidebar button { display: block; width: 100%; padding: 10px; border: none; background: none; text-align: left; }
+        .sidebar button:hover { background-color: #ddd; }
+        #main-content { margin-left: 50px;margin-right: 50px; padding: 10px; width: 100%;}
+        .toggle-sidebar { cursor: pointer; }
+    </style>
 </head>
-<body class="index">
-<!-- 顶部开始 -->
-<div class="container" style="background-color: rgb(219, 4, 4);">
-    <div class="logo" >
-        <a href="text.jsp" style="background-color: rgb(255, 32, 32);">
-            <img src="images/02.jpg" alt="" style="width: 40px;height: 40px;border-radius: 50%;">
-            建国七十周年网站
-        </a>
-        <!-- <a href="javascript:;"><img src="images/01.jpg" alt="" style="width: 40px;height: 40px;border-radius: 50%;"></a> -->
-    </div>
+<body>
 
-    <div class="left_open">
-        <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
-    </div>
-
-    <ul class="layui-nav right" lay-filter="">
-        <li class="layui-nav-item to-index">
-            <a href="#" style="font-size: 18px;background-color: red;">username</a></li>
-        <li class="layui-nav-item">
-
-
-            <a href="javascript:;"><img src="images/02.jpg" alt="" style="width: 40px;height: 40px;border-radius: 50%;"></a>
-            <dl class="layui-nav-child">
-                <!-- 二级菜单 -->
-                <dd>
-                    <a onclick="xadmin.open('个人信息','http://localhost/demo3_war/userInfoPage.jsp')">个人信息</a></dd>
-                <dd>
-                    <a onclick="xadmin.open('切换帐号','http://localhost/demo3_war/login.jsp')">切换帐号</a></dd>
-                <dd>
-                    <a href="./login.html">退出</a></dd>
-            </dl>
-        </li>
-
-    </ul>
-</div>
-<!-- 顶部结束 -->
-<!-- 中部开始 -->
-<!-- 左侧菜单开始 -->
-<div class="left-nav">
-    <div id="side-nav">
-        <ul id="nav">
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont left-nav-li" lay-tips="个人中心">&#xe6b8;</i>
-                    <cite>个人中心</cite>
-                    <i class="iconfont nav_right">&#xe697;</i></a>
-                <ul class="sub-menu">
-                    <li>
-                        <a onclick="xadmin.add_tab('个人信息','userInfoPage.jsp')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>个人信息</cite></a>
-                    </li>
-                    <li>
-                        <a onclick="xadmin.add_tab('信息修改','changInfo.jsp')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>信息修改</cite></a>
-                    </li>
-                    <li>
-                        <a onclick="xadmin.add_tab('文章编写','member-list1.html',true)">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>发布文章</cite></a>
-                    </li>
-                    <li>
-                        <a onclick="xadmin.add_tab('文章删除','member-del.html')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>删除文章</cite></a>
-                    </li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont left-nav-li" lay-tips="订单管理">&#xe723;</i>
-                    <cite>数据中心</cite>
-                    <i class="iconfont nav_right">&#xe697;</i></a>
-                <ul class="sub-menu">
-                    <li>
-                        <a onclick="xadmin.add_tab('数据中心','welcome1.html')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>数据展示</cite></a>
-                    </li>
-                    <li>
-                        <a onclick="xadmin.add_tab('订单列表','order-list.html')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>文章列表</cite></a>
-                    </li>
-                    <!-- <li>
-                        <a onclick="xadmin.add_tab('评论列表','order-list1.html')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>评论列表</cite></a>
-                    </li> -->
-                </ul>
-            </li>
-            <li>
-        </ul>
-    </div>
-</div>
-<!-- <div class="x-slide_left"></div> -->
-<!-- 左侧菜单结束 -->
-<!-- 右侧主体开始 -->
-<div class="page-content">
-    <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
-        <ul class="layui-tab-title">
-            <li class="home">
-                <i class="layui-icon">&#xe68e;</i>我的桌面</li></ul>
-        <div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">
-            <dl>
-                <dd data-type="this">关闭当前</dd>
-                <dd data-type="other">关闭其它</dd>
-                <dd data-type="all">关闭全部</dd></dl>
+<div class="navbar">
+    <a href="index.html">七十周年</a>
+    <div class="dropdown">
+    <span style="display: flex;">
+      <img src="${sessionScope.userPhoto}" alt="用户头像" width="40" height="40" style="margin-right: 10px;">
+      <span style="align-self: center;text-align: center;font-size: 20px; width: 120px;background-color: skyblue; border-radius: 10px;">${sessionScope.username}</span>
+    </span>
+        <div class="dropdown-content">
+            <a href="#">个人资料</a>
+            <a href="#">设置</a>
+            <a href="#">退出</a>
         </div>
-        <div class="layui-tab-content">
-            <div class="layui-tab-item layui-show">
-                <iframe src='./welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
-            </div>
-        </div>
-        <div id="tab_show"></div>
     </div>
 </div>
-<div class="page-content-bg"></div>
-<style id="theme_style"></style>
-<!-- 右侧主体结束 -->
-<!-- 中部结束 -->
 
+<div class="main" style="display: flex;flex-direction: row;">
+    <div class="sidebar">
+        <button class="toggle-sidebar">☰</button>
+        <button onclick="loadPage('userInfoPage.jsp')">个人信息</button>
+        <button onclick="loadPage('changInfo.jsp')">修改信息</button>
+        <button onclick="loadPage('sendArticle.jsp')">发布文章</button>
+        <button onclick="loadPage('contentShow.jsp')">文章显示</button>
+    </div>
 
+    <div id="main-content" style="display: flex;justify-content: center;align-items: center;overflow: hidden">
+        <!-- 主内容加载区域 -->
+    </div>
 </div>
+
+
+<script>
+    document.getElementById('main-content').innerHTML = 'index.html';
+    document.querySelector('.toggle-sidebar').addEventListener('click', function() {
+        var sidebar = document.querySelector('.sidebar');
+        var mainContent = document.querySelector('.main-content');
+        if (sidebar.style.width === '250px') {
+            sidebar.style.width = '50px';
+            mainContent.style.marginLeft = '50px';
+        } else {
+            sidebar.style.width = '250px';
+            mainContent.style.marginLeft = '250px';
+        }
+    });
+    function loadPage(page) {
+        document.getElementById('main-content').innerHTML = '<object type="text/html" data="' + page + '" style="width:100%; height:100vh;"></object>';
+    }
+</script>
 
 </body>
-
 </html>

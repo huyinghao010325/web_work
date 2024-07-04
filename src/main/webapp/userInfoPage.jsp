@@ -137,8 +137,8 @@
 <div class="content">
     <div id="personal-info" class="section">
         <h2>个人信息</h2>
-        <p>用户名：YourUsername</p>
-        <p>自我介绍：这里是你的自我介绍。你可以介绍你的背景、职业、教育、个人兴趣等等。</p>
+        <p>用户名：${sessionScope.username}</p>
+        <p>个人账户：${sessionScope.userAccount}</p>
     </div>
     <div id="comments" class="section">
         <h2>评论</h2>

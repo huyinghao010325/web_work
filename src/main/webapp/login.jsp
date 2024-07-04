@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,14 +43,58 @@
     }
 </style>
 <body>
+<script type="text/javascript">
+    function checkedRegister(){
+        var account = document.registerForm.account.value;
+        var fileInput = document.registerForm.avatar;
+        var filePath = fileInput.value;
+        var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+        // 检查账号是否为6位数字
+        if (!/^\d{6}$/.test(account)) {
+            alert("账号必须为6位数字");
+            return false;
+        }
+        // 检查上传文件是否为图片
+        if (!allowedExtensions.exec(filePath)) {
+            alert('请上传文件格式为 .jpeg/.jpg/.png/.gif 的图片');
+            fileInput.value = '';
+            return false;
+        }
+        document.registerForm.submit();
+    }
+    function checkedLogin(){
+        var account = document.loginForm.account.value;
+        if (!/^\d{6}$/.test(account)){
+            alert("账号必须为6位数字");
+            return false;
+        }
+
+        if (document.loginForm.password.value==null){
+            alert("请输入密码！")
+            return false;
+        }
+        if (document.loginForm.code.value==null){
+            alert("请输入验证码！")
+            return false;
+        }
+
+        document.loginForm.submit();
+    }
+</script>
 <div class="container" id="login-box">
     <div class="form-container sign-up-container">
-        <form>
+        <form action="register" name="registerForm" method="post" enctype="multipart/form-data">
             <h1>注册</h1>
             <div id="result" style="width: 100%;text-align: center"><img/></div>
             <div class="txtb">
-                <input type="file" id="upload" name="myFile">
+                <input type="file" id="upload" name="avatar">
                 <%--                <span data-placeholder="Password" ></span>--%>
+            </div>
+            <div class="txtb">
+                <label for="username"></label>
+                <input type="text" placeholder="请输入用户姓名" name="username" id="username">
+                <%--                <span data-placeholder="Useranme" ></span>--%>
             </div>
             <div class="txtb">
                 <label for="account"></label>
@@ -65,11 +108,11 @@
             </div>
 
 
-            <button onclick="checkRegisterForm()">注册</button>
+            <button onclick="checkedRegister()">注册</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="servlets/LoginServlet" name="loginForm" method="post">
+        <form action="login" name="loginForm" method="post">
             <h1>登录</h1>
             <div class="txtb">
                 <label for="account"></label>
@@ -95,7 +138,7 @@
                 <div></div>
                 <div></div>
             </div>
-            <button>登录</button>
+            <button onclick="checkedLogin()">登录</button>
         </form>
     </div>
     <div class="overlay-container">
